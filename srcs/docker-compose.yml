@@ -1,0 +1,49 @@
+services:
+  mariadb :
+    build :
+      context : requirements/mariadb 
+    
+    volumes : 
+      - db:/var/lib/mysql 
+
+    networks :
+      - net
+
+    environment:
+      DB_NAME: ${DB_NAME}
+      DB_USER: ${DB_USER}
+      DB_PASSWORD: ${DB_PASSWORD}
+      DB_HOST: $(DB_HOST)
+
+  nginx :
+    build :
+      context : requirements/nginx
+   
+    depends_on:
+      - wordpress
+
+    volumes :
+      - www:/www
+
+    ports:
+      - "80:80"
+
+    networks :
+      - net
+
+  wordpress :
+    build :
+      context : requirements/wordpress
+      
+    volumes :
+      - www:/www
+    
+    networks :
+      - net
+
+networks :
+  net :
+
+volumes :
+  db :
+  www :
