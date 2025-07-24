@@ -37,6 +37,7 @@ services:
     secrets :
       - DB_PASSWORD
       - ADMIN_USER
+      - NORMAL_USER
 
 networks :
   net :
@@ -60,3 +61,5 @@ secrets:
     file : ../secrets/DB_PASSWORD
   ADMIN_USER : 
     file : ../secrets/ADMIN_USER
+  NORMAL_USER : 
+    file : ../secrets/NORMAL_USER
