@@ -2,48 +2,61 @@ services:
   mariadb :
     build :
       context : requirements/mariadb 
-    
     volumes : 
       - db:/var/lib/mysql 
-
     networks :
       - net
-
-    environment:
-      DB_NAME: ${DB_NAME}
-      DB_USER: ${DB_USER}
-      DB_PASSWORD: ${DB_PASSWORD}
-      DB_HOST: $(DB_HOST)
+    env_file :
+      - .env
+    secrets :
+      - DB_PASSWORD
 
   nginx :
     build :
       context : requirements/nginx
-   
     depends_on:
       - wordpress
-
     volumes :
       - www:/www
-
     ports:
       - "80:80"
-
     networks :
       - net
 
   wordpress :
     build :
-      context : requirements/wordpress
-      
+      context : requirements/wordpress      
+    depends_on:
+      - mariadb
     volumes :
       - www:/www
-    
     networks :
       - net
+    env_file :
+      - .env
+    secrets :
+      - DB_PASSWORD
+      - ADMIN_USER
 
 networks :
   net :
 
 volumes :
   db :
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/franaivo/data/mysql
+
   www :
+    driver_opts:
+      type: none
+      o: bind
+      device: /home/franaivo/data/www
+
+
+secrets:
+  DB_PASSWORD : 
+    file : ../secrets/DB_PASSWORD
+  ADMIN_USER : 
+    file : ../secrets/ADMIN_USER

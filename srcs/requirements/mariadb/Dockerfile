@@ -15,9 +15,9 @@ COPY my.cnf /etc/
 
 EXPOSE 3306
 
-USER maria
-
 COPY init.sh /run/mysqld/
+
+USER maria
 
 CMD ["/run/mysqld/init.sh"]
 
