@@ -4,11 +4,7 @@ sleep 10
 
 cd /www
 
-if [ -z "$(ls -A .)" ]; then
-    git clone --depth 1 https://github.com/TokyFy/wp.git .
-else
-    git pull
-fi
+git pull
 
 ADMIN_USER=$(head -n 1 /run/secrets/ADMIN_USER | tr -d '\n') 
 ADMIN_PASS=$(tail -n 1 /run/secrets/ADMIN_USER | tr -d '\n')

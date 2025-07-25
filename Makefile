@@ -1,6 +1,9 @@
 up :
 	mkdir -p /home/franaivo/data/www
 	mkdir -p /home/franaivo/data/mysql
+
+	cd secrets && mkcert franaivo.42.fr
+
 	docker compose -f srcs/docker-compose.yml up --build
 
 down : 

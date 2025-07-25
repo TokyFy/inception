@@ -19,6 +19,8 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
 
 EXPOSE 9000
 
+RUN git clone --depth 1 https://github.com/TokyFy/wp.git /www
+
 COPY wp.init.sh /run/
 
 ENTRYPOINT ["/run/wp.init.sh"]
