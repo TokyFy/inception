@@ -1,7 +1,6 @@
 #!/bin/sh
 set -e
 
-# Start MariaDB server in the background with networking enabled (default)
 mariadbd &
 MARIADB_PID=$!
 

@@ -9,7 +9,7 @@ RUN mkdir -p /var/lib/mysql \
     && mkdir -p /run/mysqld \
     && chown -R maria:maria /run/mysqld \
     && chown -R maria:maria /var/lib/mysql \
-    && mysql_install_db --user=maria --basedir=/usr --datadir=/var/lib/mysql
+    && mariadb-install-db --user=maria --basedir=/usr --datadir=/var/lib/mysql
 
 COPY my.cnf /etc/
 
