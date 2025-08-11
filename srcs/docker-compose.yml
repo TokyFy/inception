@@ -48,7 +48,6 @@ services:
 
   ftp :
     restart : unless-stopped
-    stop_signal: SIGKILL
     build :
       context : requirements/ftp
     volumes :
