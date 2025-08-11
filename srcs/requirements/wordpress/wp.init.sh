@@ -6,8 +6,6 @@ cd /www
 
 git pull
 
-chmod -R a+wr /www
-
 ADMIN_USER=$(head -n 1 /run/secrets/ADMIN_USER | tr -d '\n') 
 ADMIN_PASS=$(tail -n 1 /run/secrets/ADMIN_USER | tr -d '\n')
 
@@ -54,5 +52,11 @@ This space is where I share things I notice, things I mess up, and things that m
 
 EOF
 )"
+
+chown -R www-data:www-data /www/wp-content
+chmod -R 755 /www/wp-content
+
+wp plugin install redis-cache --activate
+
 
 exec php-fpm83 -F -R
