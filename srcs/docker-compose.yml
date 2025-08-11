@@ -46,6 +46,23 @@ services:
       - ADMIN_USER
       - NORMAL_USER
 
+  ftp :
+    restart : unless-stopped
+    stop_signal: SIGKILL
+    build :
+      context : requirements/ftp
+    volumes :
+      - www:/home/franaivo/www
+    networks :
+      - net
+    ports :
+      - "21:21"
+      - "21100-21110:21100-21110"
+    secrets :
+      - ADMIN_USER
+      - franaivo.42.fr-key.pem
+      - franaivo.42.fr.pem
+
 networks :
   net :
 
