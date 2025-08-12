@@ -14,10 +14,10 @@ services:
 
   nginx :
     restart : unless-stopped
+    depends_on :
+      - wordpress
     build :
       context : requirements/nginx
-    depends_on:
-      - wordpress
     volumes :
       - www:/www
     ports:
@@ -28,13 +28,13 @@ services:
       - franaivo.42.fr-key.pem
       - franaivo.42.fr.pem
 
-
   wordpress :
     restart : unless-stopped
     build :
       context : requirements/wordpress      
     depends_on:
       - mariadb
+      - redis
     volumes :
       - www:/www
     networks :
@@ -70,6 +70,8 @@ services:
       - net
     ports :
       - "6379:6379"
+    secrets :
+      - ADMIN_USER
 
 networks :
   net :
