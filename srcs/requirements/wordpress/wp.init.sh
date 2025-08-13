@@ -2,8 +2,9 @@
 
 sleep 10
 
-cd /www
+cd /www/
 
+git config --global --add safe.directory /www
 git pull
 
 ADMIN_USER=$(head -n 1 /run/secrets/ADMIN_USER | tr -d '\n') 
@@ -60,8 +61,5 @@ wp redis enable
 curl -s -X POST -H "Content-Type: application/json" \
      -d '{"text":"SERVER RUNINNGG : franaivo.42.fr"}' \
      tux/say > /dev/null 2>&1
-
-chown -R nobody:nogroup /www/
-chmod 777 -R /www
 
 exec php-fpm83 -F -R
