@@ -1,3 +1,5 @@
+name: ft
+
 services:
   mariadb :
     restart : unless-stopped
