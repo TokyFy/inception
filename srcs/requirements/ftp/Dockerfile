@@ -6,8 +6,7 @@ RUN apk update && \
 RUN adduser -D -h /home/franaivo franaivo && \
     mkdir /home/franaivo/www && \
     mkdir -p /var/run/proftpd && \
-    chown -R franaivo:franaivo /var/run/proftpd && \
-    chown -R franaivo:franaivo /home/franaivo/www
+    chown -R franaivo:franaivo /var/run/proftpd
 
 COPY proftpd.conf ftp.sh /etc/proftpd/
 
