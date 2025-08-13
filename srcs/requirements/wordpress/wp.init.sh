@@ -60,4 +60,8 @@ wp plugin activate redis-cache
 
 wp redis enable
 
+curl -s -X POST -H "Content-Type: application/json" \
+     -d '{"text":"SERVER RUNINNGG : franaivo.42.fr"}' \
+     tux/say > /dev/null 2>&1
+
 exec php-fpm83 -F -R
