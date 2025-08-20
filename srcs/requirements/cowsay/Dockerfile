@@ -4,6 +4,6 @@ RUN apt update && apt install -y cowsay lolcat python3 python3-pip
 
 RUN pip install flask
 
-COPY tux.sh tux.py /etc/
+COPY cowsay.sh cowsay.py /etc/
 
-CMD ["/etc/tux.sh"]
+CMD ["/etc/cowsay.sh"]
