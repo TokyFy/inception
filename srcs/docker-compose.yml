@@ -12,7 +12,7 @@ services:
     env_file :
       - .env
     secrets :
-      - DB_PASSWORD
+      - DB_USER
 
   nginx :
     restart : unless-stopped
@@ -44,7 +44,7 @@ services:
     env_file :
       - .env
     secrets :
-      - DB_PASSWORD
+      - DB_USER
       - ADMIN_USER
       - NORMAL_USER
 
@@ -72,8 +72,6 @@ services:
       context : requirements/redis
     networks :
       - net
-    secrets :
-      - DB_PASSWORD
 
   admirer :
     restart : unless-stopped 
@@ -130,8 +128,8 @@ volumes :
 
 
 secrets:
-  DB_PASSWORD : 
-    file : ../secrets/DB_PASSWORD
+  DB_USER : 
+    file : ../secrets/DB_USER
   ADMIN_USER : 
     file : ../secrets/ADMIN_USER
   NORMAL_USER : 

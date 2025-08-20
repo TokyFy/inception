@@ -9,7 +9,6 @@
     DOMAIN=
     DB_NAME=
     DB_HOST=
-    DB_USER=
 
 [ secrets/* ]
     ADMIN_USER
@@ -18,5 +17,6 @@
     NORMAL_USER
         <name>
         <password>
-    DB_PASSWORD
+    DB_USER
+        <name>
         <password>

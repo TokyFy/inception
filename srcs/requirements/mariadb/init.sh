@@ -3,7 +3,9 @@ set -e
 
 mariadbd &
 MARIADB_PID=$!
-DB_PASS=$(cat /run/secrets/DB_PASSWORD | tr -d '\n')
+
+DB_USER=$(head -n 1 /run/secrets/DB_USER | tr -d '\n') 
+DB_PASS=$(tail -n 1 /run/secrets/DB_USER | tr -d '\n')
 
 echo "Waiting 5 seconds for MariaDB to start..."
 sleep 5
