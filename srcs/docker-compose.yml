@@ -19,9 +19,13 @@ services:
     volumes :
       - www:/www
     ports:
-      - "80:80"
+      - "443:443"
     networks :
       - net
+    secrets :
+      - franaivo.42.fr-key.pem
+      - franaivo.42.fr.pem
+
 
   wordpress :
     build :
@@ -63,3 +67,8 @@ secrets:
     file : ../secrets/ADMIN_USER
   NORMAL_USER : 
     file : ../secrets/NORMAL_USER
+  franaivo.42.fr-key.pem :
+    file : ../secrets/franaivo.42.fr-key.pem
+  franaivo.42.fr.pem :
+    file : ../secrets/franaivo.42.fr.pem
+
