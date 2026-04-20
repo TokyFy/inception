@@ -1,4 +1,9 @@
 up :
+	@if [ -z "$$(ls -A $${HOME}/data/www 2>/dev/null)" ]; then \
+		$(MAKE) down; \
+		$(MAKE) fclean; \
+	fi
+
 	mkdir -p /home/franaivo/data/www
 	mkdir -p /home/franaivo/data/mysql
 
