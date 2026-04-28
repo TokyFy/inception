@@ -1,5 +1,6 @@
 services:
   mariadb :
+    restart : unless-stopped
     build :
       context : requirements/mariadb 
     volumes : 
@@ -12,6 +13,7 @@ services:
       - DB_PASSWORD
 
   nginx :
+    restart : unless-stopped
     build :
       context : requirements/nginx
     depends_on:
@@ -28,6 +30,7 @@ services:
 
 
   wordpress :
+    restart : unless-stopped
     build :
       context : requirements/wordpress      
     depends_on:
