@@ -48,6 +48,8 @@ services:
 
   ftp :
     restart : unless-stopped
+    depends_on :
+      - wordpress
     build :
       context : requirements/ftp
     volumes :
@@ -88,9 +90,23 @@ services:
       - net
 
   cgit :
-    restart : unless-stopped 
+    restart : unless-stopped
+    depends_on :
+      - wordpress
     build :
       context : requirements/cgit 
+    networks :
+      - net
+
+  tux :
+    restart : unless-stopped
+    build :
+      context : requirements/tux
+    depends_on :
+      - nginx
+      - cgit 
+      - admirer 
+      - meine 
     networks :
       - net
 

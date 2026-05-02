@@ -1,2 +1,22 @@
-scan-path=/git
+logo=/wp-content/uploads/42.png
+root-title=Inception Git server
+root-desc=Monitor all repositories in one place
+
 virtual-root=/cgit
+source-filter=/usr/lib/cgit/filters/syntax-highlighting.py
+
+repo.url=mee
+repo.path=/git/mee/.git
+repo.desc=👽 My personal website [HTML]
+repo.owner=franaivo@student.42antananarivo.mg
+
+repo.url=wp
+repo.path=/git/wp/.git
+repo.desc=👾 Blog website [powered by wordpress]
+repo.owner=franaivo@student.42antananarivo.mg
+
+repo.url=inception
+repo.path=/git/inception/.git
+repo.desc=🛸 The Inception Project itself [Docker]
+repo.owner=franaivo@student.42antananarivo.mg
+

@@ -5,8 +5,6 @@ RUN apk update && \
 
 COPY redis.conf /etc/redis.conf
 
-EXPOSE 6379
-
 COPY redis.sh /etc/
 
 CMD ["/etc/redis.sh"]
