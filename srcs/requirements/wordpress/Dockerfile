@@ -8,7 +8,17 @@ RUN apk update && apk add --no-cache \
     curl \
     php-phar \
     php-mbstring \
-    php-iconv
+    php-iconv \
+    php83-gd \
+    php83-curl \
+    php83-json \
+    php83-xml \
+    php83-zip \
+    php83-opcache \
+    php83-exif \
+    php83-ctype \
+    php83-session \
+    php83-dom
 
 COPY www.conf /etc/php83/php-fpm.d/
 COPY php.ini /etc/php83
