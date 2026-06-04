@@ -2,6 +2,7 @@ name: ft
 
 services:
   mariadb :
+    image : mariadb
     restart : unless-stopped
     build :
       context : requirements/mariadb 
@@ -16,6 +17,7 @@ services:
 
   nginx :
     restart : unless-stopped
+    image : ngnix
     depends_on :
       - wordpress
     build :
@@ -31,6 +33,7 @@ services:
       - franaivo.42.fr.pem
 
   wordpress :
+    image : wordpress
     restart : unless-stopped
     build :
       context : requirements/wordpress      
@@ -49,6 +52,7 @@ services:
       - NORMAL_USER
 
   ftp :
+    image : ftp
     restart : unless-stopped
     depends_on :
       - wordpress
@@ -67,6 +71,7 @@ services:
       - franaivo.42.fr.pem
 
   redis :
+    image : redis
     restart : unless-stopped 
     build :
       context : requirements/redis
@@ -74,6 +79,7 @@ services:
       - net
 
   admirer :
+    image : admirer
     restart : unless-stopped 
     depends_on :
       - mariadb
@@ -83,6 +89,7 @@ services:
       - net
 
   meine :
+    image : meine
     restart : unless-stopped 
     build :
       context : requirements/meine 
@@ -90,6 +97,7 @@ services:
       - net
 
   cgit :
+    image : cgit
     restart : unless-stopped
     depends_on :
       - wordpress
@@ -99,6 +107,7 @@ services:
       - net
 
   cowsay :
+    image : cowsay
     restart : unless-stopped
     build :
       context : requirements/cowsay
