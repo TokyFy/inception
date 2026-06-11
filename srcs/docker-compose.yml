@@ -87,6 +87,13 @@ services:
     networks :
       - net
 
+  cgit :
+    restart : unless-stopped 
+    build :
+      context : requirements/cgit 
+    networks :
+      - net
+
 networks :
   net :
 
