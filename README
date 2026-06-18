@@ -1,0 +1,22 @@
+[ incetion ]
+
+[ Build ]
+    make up
+    make down
+    make fclean
+
+[ srcs/.env ]
+    DOMAIN=
+    DB_NAME=
+    DB_HOST=
+    DB_USER=
+
+[ secrets/* ]
+    ADMIN_USER
+        <name>
+        <password>
+    NORMAL_USER
+        <name>
+        <password>
+    DB_PASSWORD
+        <password>
