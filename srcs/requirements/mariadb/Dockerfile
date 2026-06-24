@@ -13,8 +13,6 @@ RUN mkdir -p /var/lib/mysql \
 
 COPY my.cnf /etc/
 
-EXPOSE 3306
-
 COPY init.sh /run/mysqld/
 
 USER maria
