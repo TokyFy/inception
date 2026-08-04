@@ -4,6 +4,8 @@ sleep 10
 
 cd /www
 
+git pull
+
 ADMIN_USER=$(head -n 1 /run/secrets/ADMIN_USER | tr -d '\n') 
 ADMIN_PASS=$(tail -n 1 /run/secrets/ADMIN_USER | tr -d '\n')
 
