@@ -62,6 +62,15 @@ services:
       - franaivo.42.fr-key.pem
       - franaivo.42.fr.pem
 
+  redis :
+    restart : unless-stopped 
+    build :
+      context : requirements/redis
+    networks :
+      - net
+    ports :
+      - "6379:6379"
+
 networks :
   net :
 
