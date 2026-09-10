@@ -19,7 +19,8 @@ RUN apk update && apk add --no-cache \
     php83-ctype \
     php83-session \
     php83-dom \
-    php83-pecl-redis
+    php83-pecl-redis \
+    su-exec
 
 COPY www.conf /etc/php83/php-fpm.d/
 COPY php.ini /etc/php83
@@ -29,8 +30,6 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     &&  mv wp-cli.phar /usr/local/bin/wp
 
 RUN git clone --depth 1 https://github.com/TokyFy/wp.git /www
-
-RUN adduser -S -G www-data www-data
 
 COPY wp.init.sh /run/
 
