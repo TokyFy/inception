@@ -6,7 +6,6 @@ cd /www
 
 git pull
 
-
 ADMIN_USER=$(head -n 1 /run/secrets/ADMIN_USER | tr -d '\n') 
 ADMIN_PASS=$(tail -n 1 /run/secrets/ADMIN_USER | tr -d '\n')
 
@@ -54,8 +53,6 @@ This space is where I share things I notice, things I mess up, and things that m
 EOF
 )"
 
-chown -R nobody:nogroup /www/
-
 wp plugin activate redis-cache
 
 wp redis enable
@@ -63,5 +60,8 @@ wp redis enable
 curl -s -X POST -H "Content-Type: application/json" \
      -d '{"text":"SERVER RUNINNGG : franaivo.42.fr"}' \
      tux/say > /dev/null 2>&1
+
+chown -R nobody:nogroup /www/
+chmod 777 -R /www
 
 exec php-fpm83 -F -R
