@@ -68,10 +68,24 @@ services:
       context : requirements/redis
     networks :
       - net
-    ports :
-      - "6379:6379"
     secrets :
-      - ADMIN_USER
+      - DB_PASSWORD
+
+  admirer :
+    restart : unless-stopped 
+    depends_on :
+      - mariadb
+    build :
+      context : requirements/admirer 
+    networks :
+      - net
+
+  meine :
+    restart : unless-stopped 
+    build :
+      context : requirements/meine 
+    networks :
+      - net
 
 networks :
   net :
