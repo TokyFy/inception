@@ -100,10 +100,10 @@ services:
     networks :
       - net
 
-  tux :
+  cowsay :
     restart : unless-stopped
     build :
-      context : requirements/tux
+      context : requirements/cowsay
     depends_on :
       - nginx
       - cgit 
