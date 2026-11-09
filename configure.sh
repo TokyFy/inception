@@ -3,9 +3,9 @@
 mkdir -p secrets
 
 if [ ! -f "srcs/.env" ]; then
-    echo "DOMAIN=" >> secrets/.env
-    echo "DB_NAME" >> secrets/.env
-    echo "DB_HOST" >> secrets/.env
+    echo "DOMAIN=" >> srcs/.env
+    echo "DB_NAME" >> srcs/.env
+    echo "DB_HOST" >> srcs/.env
 fi
 
 touch secrets/ADMIN_USER 
